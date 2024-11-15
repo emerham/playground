@@ -23,6 +23,13 @@ p {
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
+  /*
+    Showing specificity issue.
+   */
+  background: var(--lime-3);
+  padding: 0.25em 1em;
+  color: var(--gray-9);
+  font-weight: 700;
 }
 .nav-list {
   display: flex;
