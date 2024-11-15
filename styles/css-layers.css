@@ -4,6 +4,15 @@ load order.
  */
 @layer framework, reset, base, layout, components, utilities;
 
+@layer reset {
+  /**
+  Because we have a !important here and this layer is defined first, it will overwrite the style in the base layer.
+  Even adding a !important on that base later after the rest still will not overwrite the first declared `!important.`
+   */
+  body {
+    color: hotpink !important;
+  }
+}
 /*
 Have our base layer first, more logical thinking.
  */
