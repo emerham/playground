@@ -1,0 +1,69 @@
+body {
+  background: var(--gray-9);
+  color: var(--gray-1) !important;
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+p {
+  max-width: var(--size-content-3);
+}
+
+.site-header {
+  padding-block: var(--size-4);
+}
+
+.container {
+  inline-size: min(100% - 3rem, 60rem);
+  margin-inline: auto;
+}
+
+.button {
+  border-radius: 0.125em;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-fluid-3);
+}
+
+.nav-list a {
+  color: var(--lime-3);
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  color: var(--lime-0);
+}
+
+
+.intro {
+  background: var(--gradient-23);
+  margin-block-end: clamp(2rem, 4vh, 4rem);
+  padding-block: clamp(2rem, 4vh, 4rem);
+}
+
+.unstyled-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.flow :where(:not(:first-child)) {
+  margin-bottom: var(--size-4);
+}
+
+.site-title {
+  font-size: var(--font-size-fluid-3);
+  margin-block-end: var(--size-5);
+}
+
+.site-title span {
+  display: block;
+  font-size: var(--font-size-fluid-1);
+  font-weight: var(--font-weight-3);
+}
