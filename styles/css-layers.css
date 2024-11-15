@@ -39,16 +39,20 @@ p {
     padding-block: clamp(2rem, 4vh, 4rem);
   }
 }
-
-.button {
-  background: var(--lime-3);
-  border-radius: 0.125em;
-  color: var(--gray-9);
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 700;
-  padding: 0.25em 1em;
-  text-decoration: none;
+/**
+  Layers declared after another will have a higher specificity.
+ */
+@layer components {
+  .button {
+    background: var(--lime-3);
+    border-radius: 0.125em;
+    color: var(--gray-9);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    padding: 0.25em 1em;
+    text-decoration: none;
+  }
 }
 
 .unstyled-list {
