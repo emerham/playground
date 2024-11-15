@@ -1,46 +1,5 @@
-@layer layout {
-  .nav-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--size-fluid-3);
-  }
-
-  .nav-list a {
-    color: var(--lime-3);
-  }
-
-  .nav-list a:hover,
-  .nav-list a:focus {
-    color: var(--lime-0);
-  }
-
-  .site-header {
-    padding-block: var(--size-4);
-  }
-
-  .intro {
-    background: var(--gradient-23);
-    margin-block-end: clamp(2rem, 4vh, 4rem);
-    padding-block: clamp(2rem, 4vh, 4rem);
-  }
-}
-/**
-  Layers declared after another will have a higher specificity.
- */
-@layer components {
-  .button {
-    background: var(--lime-3);
-    border-radius: 0.125em;
-    color: var(--gray-9);
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 700;
-    padding: 0.25em 1em;
-    text-decoration: none;
-  }
-}
 /*
-By having base after other layers, it will have a higher specificity.
+Have our base layer first, more logical thinking.
  */
 @layer base {
   a {
@@ -84,4 +43,46 @@ By having base after other layers, it will have a higher specificity.
     font-weight: var(--font-weight-3);
   }
 
+}
+
+@layer layout {
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-fluid-3);
+  }
+
+  .nav-list a {
+    color: var(--lime-3);
+  }
+
+  .nav-list a:hover,
+  .nav-list a:focus {
+    color: var(--lime-0);
+  }
+
+  .site-header {
+    padding-block: var(--size-4);
+  }
+
+  .intro {
+    background: var(--gradient-23);
+    margin-block-end: clamp(2rem, 4vh, 4rem);
+    padding-block: clamp(2rem, 4vh, 4rem);
+  }
+}
+/**
+  Layers declared after another will have a higher specificity.
+ */
+@layer components {
+  .button {
+    background: var(--lime-3);
+    border-radius: 0.125em;
+    color: var(--gray-9);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    padding: 0.25em 1em;
+    text-decoration: none;
+  }
 }
