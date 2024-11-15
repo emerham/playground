@@ -1,3 +1,7 @@
+a {
+  color: red;
+}
+
 body {
   background: var(--gray-9);
   color: var(--gray-1) !important;
