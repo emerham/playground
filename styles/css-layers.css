@@ -2,10 +2,6 @@
 Have our base layer first, more logical thinking.
  */
 @layer base {
-  a {
-    color: red;
-  }
-
   body {
     background: var(--gray-9);
     color: var(--gray-1) !important;
@@ -84,5 +80,19 @@ Have our base layer first, more logical thinking.
     font-weight: 700;
     padding: 0.25em 1em;
     text-decoration: none;
+  }
+
+  .button:hover,
+  .button:focus {
+    background: var(--lime-0);
+  }
+}
+/*
+Only the first declaration of a layer sets the order, re-declaring one later doesn't change it's order or it's specificity.
+This allows other style sheets to add styles into a layer.
+ */
+@layer base {
+  a {
+    color: red;
   }
 }
