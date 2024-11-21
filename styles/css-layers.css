@@ -1,0 +1,113 @@
+/*
+This sets the order from the start, then it doesn't matter when we use a layer as we've already declared it and set it's
+load order.
+ */
+@layer framework, reset, base, layout, components, utilities;
+
+@layer reset {
+  /**
+  Because we have a !important here and this layer is defined first, it will overwrite the style in the base layer.
+  Even adding a !important on that base later after the rest still will not overwrite the first declared `!important.`
+   */
+  body {
+    color: hotpink !important;
+  }
+}
+/*
+Have our base layer first, more logical thinking.
+ */
+@layer base {
+  body {
+    background: var(--gray-9);
+    color: var(--gray-1) !important;
+    font-family: var(--font-sans), system-ui;
+    margin: 0;
+  }
+
+  p {
+    max-width: var(--size-content-3);
+  }
+
+  .container {
+    inline-size: min(100% - 3rem, 60rem);
+    margin-inline: auto;
+  }
+
+  .unstyled-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .flow :where(:not(:first-child)) {
+    margin-bottom: var(--size-4);
+  }
+
+  .site-title {
+    font-size: var(--font-size-fluid-3);
+    margin-block-end: var(--size-5);
+  }
+
+  .site-title span {
+    display: block;
+    font-size: var(--font-size-fluid-1);
+    font-weight: var(--font-weight-3);
+  }
+
+}
+
+@layer layout {
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-fluid-3);
+  }
+
+  .nav-list a {
+    color: var(--lime-3);
+  }
+
+  .nav-list a:hover,
+  .nav-list a:focus {
+    color: var(--lime-0);
+  }
+
+  .site-header {
+    padding-block: var(--size-4);
+  }
+
+  .intro {
+    background: var(--gradient-23);
+    margin-block-end: clamp(2rem, 4vh, 4rem);
+    padding-block: clamp(2rem, 4vh, 4rem);
+  }
+}
+/**
+  Layers declared after another will have a higher specificity.
+ */
+@layer components {
+  .button {
+    background: var(--lime-3);
+    border-radius: 0.125em;
+    color: var(--gray-9);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    padding: 0.25em 1em;
+    text-decoration: none;
+  }
+
+  .button:hover,
+  .button:focus {
+    background: var(--lime-0);
+  }
+}
+/*
+Only the first declaration of a layer sets the order, re-declaring one later doesn't change it's order or it's specificity.
+This allows other style sheets to add styles into a layer.
+ */
+@layer base {
+  a {
+    color: red;
+  }
+}
